@@ -1,17 +1,34 @@
 // 고정 레이아웃
+import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
 import React from 'react';
 
-const AppLayout = () => {
+const AppLayout = ({ children }) => {
+    const router = useRouter();
+
+    const onSearch = (hashtag) => {
+        router.push('/hashtag/[hashtag]', `/hashtag/${hashtag}`);
+    };
 
     return (
-        <Layout>
-            <Header>Header</Header>
-            <Layout>
-                <Content>Content</Content>
-                <Sider>Sider</Sider>
-            </Layout>
-            <Footer>Footer</Footer>
-        </Layout>
+        <>
+            <Menu mode="horizontal">
+                <Menu.Item key="home">
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="profile">
+                    <Link href="/profile">
+                        <a>Profile</a>
+                    </Link>
+                </Menu.Item>
+                <Menu.Item key="search">
+                    <Input.Search placeholder="hashtag" allowClear enterButton="검색" onSearch={onSearch} />
+                </Menu.Item>
+            </Menu>
+            {children}
+        </>
     );
 };
 

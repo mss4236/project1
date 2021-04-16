@@ -2,14 +2,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
-import { createStore, compose, composeWithDevTools, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../saga';
 import reducer from '../reducer';
 import { Helmet } from 'react-helmet';
 import Head from 'next/head';
 import AppLayout from '../components/AppLayout';
-import { applyMiddleware, compose, createStore } from 'redux';
 import PropTypes from 'prop-types';
 
 // Component는 요청한 페이지 : GET요청을 보내면 Component props로 내려온다
