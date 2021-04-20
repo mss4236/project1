@@ -1,4 +1,4 @@
-import { all } from '@redux-saga/core/effects';
+import { all, fork } from '@redux-saga/core/effects';
 import axios from 'axios';
 
 // 로그인 -----------------------------------------------------------------------------------------------------------

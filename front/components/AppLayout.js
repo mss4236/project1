@@ -2,6 +2,7 @@
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import React from 'react';
+import { Menu, Input } from 'antd';
 
 const AppLayout = ({ children }) => {
     const router = useRouter();
