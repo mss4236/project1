@@ -6,20 +6,6 @@ import { createLogger } from 'redux-logger';
 import rootReducer from '../reducer';
 import rootSaga from '../saga';
 
-console.log(rootReducer, 'rootReducer-----------------');
-////////
-const reducer = (state = { tick: 'init' }, action) => {
-    switch (action.type) {
-        case HYDRATE:
-            return { ...state, ...action.payload };
-        case 'TICK':
-            return { ...state, tick: action.payload };
-        default:
-            return state;
-    }
-};
-////////
-
 const configureStore = (context) => {
     const sagaMiddleware = createSagaMiddleware();
     const loggerMiddleware = createLogger();
@@ -37,6 +23,7 @@ const configureStore = (context) => {
     return store;
 };
 
-const wrapper = createWrapper(configureStore, { debug: process.env.MODE_ENV === 'development' });
+const wrapper = createWrapper(configureStore, { debug: true });
+//debug: process.env.MODE_ENV === 'development'
 
 export default wrapper;
