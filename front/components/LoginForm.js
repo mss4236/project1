@@ -1,6 +1,6 @@
 import { Button, Form, Input } from "antd";
 import React, { useState } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [id, setId] = useState(null);
