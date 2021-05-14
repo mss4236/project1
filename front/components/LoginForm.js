@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function LoginForm() {
   const [id, setId] = useState(null);
   const [password, setPassword] = useState(null);
-  const isLoggingIn = false;
+  let isLoggingIn = false;
 
   return (
     <>
